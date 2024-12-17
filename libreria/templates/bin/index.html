@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block titulo %} Lista de clientes {% endblock %}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">Listar clientes</div>
+        <a
+            name=""
+            id=""
+            class="btn btn-success"
+            href="{% url 'crear' %}"
+            role="button"
+            >Agregar nuevo cliente</a
+        >
+        
+    <div class="card-body">
+        <h4 class="card-title">Clientes</h4>
+        
+        <div
+            class="table-responsive"
+        >
+            <table
+                class="table table-primary"
+            >
+                <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Direccion</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="">
+                        <td>1</td>
+                        <td>Jhony Aguilar</td>
+                        <td>51228249</td>
+                        <td>Tejutla</td>
+                        <td>jhony2022aguilar@gmail.com </td>
+                        <td><a
+                            name=""
+                            id=""
+                            class="btn btn-info"
+                            href="{% url 'editar' %}"
+                            role="button"
+                            >Editar</a>
+                         | <a
+                         name=""
+                         id=""
+                         class="btn btn-danger"
+                         href="#"
+                         role="button"
+                         >Borrar</a></td>
+                    </tr>
+                    <tr class="">
+                        <td scope="row">Item</td>
+                        <td>Item</td>
+                        <td>Item</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+
+    </div>
+    <div class="card-footer text-muted">
+
+    </div>
+</div>
+ 
+
+{% endblock %}   
