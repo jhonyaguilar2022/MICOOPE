@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 
-{% block titulo %} Lista de clientes {% endblock %}
+{% block titulo %} Lista de Libros {% endblock %}
 
 {% block contenido %} 
 
 <div class="card">
-    <div class="card-header">Listar clientes</div>
+    <div class="card-header">Lista Libros</div>
         <a
             name=""
             id=""
             class="btn btn-success"
             href="{% url 'crear' %}"
             role="button"
-            >Agregar nuevo cliente</a
+            >Agregar nuevo libro</a
         >
         
     <div class="card-body">
-        <h4 class="card-title">Clientes</h4>
+        <h4 class="card-title">Libros</h4>
         
         <div
             class="table-responsive"
@@ -28,39 +28,41 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Nombre</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Direccion</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col">Imagen</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Fecha</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for bin in bin %}
                     <tr class="">
-                        <td>1</td>
-                        <td>Jhony Aguilar</td>
-                        <td>51228249</td>
-                        <td>Tejutla</td>
-                        <td>jhony2022aguilar@gmail.com </td>
+                        <td>{{bin.id}}</td>
+                        <td>{{bin.titulo}}</td>
+                        <td>
+                            <img src="{{ bin.imagen.url }}" height="100" />
+                            
+                            
+
+                        </td>
+                        <td>{{bin.descripcion}}</td>
+                        <td>{{bin.fecha}}</td>
                         <td><a
                             name=""
                             id=""
                             class="btn btn-info"
-                            href="{% url 'editar' %}"
+                            href="{% url 'editar' bin.id %}"
                             role="button"
                             >Editar</a>
                          | <a
                          name=""
                          id=""
                          class="btn btn-danger"
-                         href="#"
+                         href="{% url 'eliminar' bin.id  %}"
                          role="button"
                          >Borrar</a></td>
                     </tr>
-                    <tr class="">
-                        <td scope="row">Item</td>
-                        <td>Item</td>
-                        <td>Item</td>
-                    </tr>
+                    {% endfor %}
+
                 </tbody>
             </table>
         </div>
